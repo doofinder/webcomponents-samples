@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cards</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+  <link rel="stylesheet" href="/playground/assets/styles.css">
+  <link rel="stylesheet" href="/playground/assets/custom-cards.css" data-df-component="df-card">
+  <style>
+    #cards {
+      display: grid;
+      margin-left: 48px;
+      margin-right: 48px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 48px;
+      column-gap: 48px;
+      grid-row-gap: 48px;
+      row-gap: 48px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    :root {
+      --df-results--grid--min-column-width: 240px;
+      --df-results--grid--max-column-width: 240px;
+    }
+  </style>
+  <script type="module">
+    import '@dfwc/icon';
+    import '@dfwc/input';
+    import '@dfwc/results';
+
+    import { setLanguage } from '@dfwc/core';
+    import { ResultEvent } from '@dfwc/results';
+
+    setLanguage('es');
+
+    function generateId() {
+      return `${parseInt(Math.random() * 1000, 10)}`;
+    }
+
+    function buildResultData(title, {price, discountPercent, image}) {
+      const id = generateId();
+      const dfid = `${md5(id)}@product@ac42634b27b4530eac740d6b72fcb713`;
+      const data = {
+        id,
+        dfid,
+        title,
+        type: "product",
+        link: "#",
+        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, dolores? Eligendi, sapiente. Voluptas dolor, minus deleniti consectetur vitae doloremque explicabo vel quam! Pariatur vero iusto reprehenderit earum laboriosam saepe consequatur?"
+      };
+
+      if (image) {
+        data.image_link = `/playground/assets/images/${image}`;
+      }
+
+      if (price) {
+        data.price = price;
+        if (discountPercent) {
+          data.sale_price = price * (1 - 1 / discountPercent);
+        }
+      }
+
+      return data;
+    }
+
+    function buildCardSample(container, data, attributes) {
+      const sample = document.createElement('df-card');
+      sample.data = data;
+      Object.keys(attributes || {}).forEach(key => sample.setAttribute(key, attributes[key]));
+      container.appendChild(sample);
+    }
+
+    const cards = document.getElementById('cards');
+
+    const AirPods = buildResultData('AirPods Pro', {price: 279, image: 'airpods.jpg'});
+    const Coat1 = buildResultData('Wrap Collar Coat', {price: 69.95, image: 'coat1.jpg'});
+    const Coat2 = buildResultData('Detachable Padded Coat', {price: 19.95, discountPercent: 5, image: 'coat2.jpg'});
+
+    const currency = 'EUR';
+
+    buildCardSample(cards, {...Coat1}, {class: 'theme-coat-1', currency, template: '#Coat1-tpl'});
+    buildCardSample(cards, {...Coat2}, {class: 'theme-coat-2', currency, template: '#Coat2-tpl'});
+    buildCardSample(cards, {...AirPods}, {class: 'theme-airpods-1', currency, template: '#AirPodsPro1-tpl'});
+    buildCardSample(cards, {...AirPods}, {class: 'theme-airpods-2', currency});
+
+    document.body.addEventListener(ResultEvent.Click, (event) => {
+      const { data, target, originalEvent } = event.detail;
+      if (target.id === 'fav') {
+        console.log(`Added ${data.title} to favorites!`);
+      } else if (target.id === 'cart') {
+        target.classList.add('added');
+        console.log(`Added ${data.title} to cart!`);
+      } else if (target.getAttribute('href') === '#detail') {
+        console.log('Clicked "view more" link!');
+      } else {
+        originalEvent.preventDefault();
+        console.log('Clicked card!');
+      }
+    });
+
+    document.getElementById('toggle-attr').addEventListener('click', (event) => {
+      const results = document.querySelector('df-results');
+      if (results.hasAttribute('template')) {
+        results.removeAttribute('template');
+      } else {
+        results.setAttribute('template', '#results-tpl');
+      }
+    });
+
+    document.getElementById('donothing').addEventListener('click', (event) => {
+      const results = document.querySelector('df-results');
+      results.renderTemplate = null;
+    })
+  </script>
+
+</head>
+<body data-df-hashid="6a96504dc173514cab1e0198af92e6e9" data-df-zone="eu1">
+  <template id="AirPodsPro1-tpl">
+    <button class="rounded-button" id="fav"><df-icon name="favorite" style="position: relative; top: 1px;"></df-icon></button>
+    <button class="rounded-button" id="cart"><df-icon name="add_shopping_cart" style="position: relative; top: 2px; left: 1px;"></df-icon></button>
+    <df-image src="${this.data.image_link}" ?hidden=${!this.data.image_link}></df-image>
+    <df-price
+      type="regular"
+      .value=${this.data.price}
+      .currency=${this.currency}>
+    </df-price>
+    <a class="title" href="${this.data.link}" role="heading" data-df-role="link">${this.data.title}</a>
+    <df-rating value="4"></df-rating>
+    <a class="viewmore" href="#detail"><span>See the details</span><df-icon name="chevron_right"></df-icon></a>
+  </template>
+
+  <template id="Coat1-tpl">
+    <df-image src="${this.data.image_link}" height-ratio="150%"></df-image>
+    <div class="content">
+      <a class="title" href="${this.data.link}" role="heading" data-df-role="link">${this.data.title}</a>
+      <df-price
+        type="regular"
+        .value=${this.data.price}
+        .currency=${this.currency}>
+      </df-price>
+    </div>
+  </template>
+
+  <template id="Coat2-tpl">
+    <df-image src="${this.data.image_link}" height-ratio="100%" fit="cover"></df-image>
+    <div class="content">
+      <a class="title" href="${this.data.link}" role="heading" data-df-role="link">${this.data.title}</a>
+      <df-price
+        type="regular"
+        .value=${this.data.price}
+        .currency=${this.currency}>
+      </df-price>
+    </div>
+  </template>
+
+  <template id="results-tpl">
+    <df-card class="theme-airpods-1" .data=${context.data} .currency=${this.currency} template="#AirPodsPro1-tpl"></df-card>
+  </template>
+
+  <p>
+    <a href="../index.html">← Playground</a>
+  </p>
+
+  <h1>Cards Showcase</h1>
+
+  <div>
+    <df-input-capture class="m-b-1">
+      <input type="search" placeholder="Search something">
+    </df-input-capture>
+    <button id="toggle-attr">Toggle Template (via attributes)</button>
+    <button id="donothing">Do nothing (try to set null from JS)</button>
+  </div>
+
+  <df-results infinite scroll-parent="document"></df-results>
+
+  <div id="cards"></div>
+</body>
+</html>

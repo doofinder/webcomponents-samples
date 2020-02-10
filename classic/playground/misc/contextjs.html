@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Context JS API</title>
+  <style>
+    html {
+      font-size: 16px;
+    }
+
+    df-input {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      margin-bottom: 2rem;
+    }
+
+    input[type="search"],
+    #toggleContext {
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      padding: .5rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    input[type="search"] {
+      border-top-left-radius: .25rem;
+      border-bottom-left-radius: .25rem;
+      width: 20em;
+    }
+
+    #toggleContext {
+      border-left-width: 0;
+      border-top-right-radius: .25rem;
+      border-bottom-right-radius: .25rem;
+    }
+  </style>
+  <script type="module">
+    import '@dfwc/results';
+    import '@dfwc/input';
+
+    import { store } from '@dfwc/core';
+    import { ResultEvent } from '@dfwc/results';
+
+    document.querySelector('#toggleContext').addEventListener('click', function(event) {
+      document.querySelectorAll('df-input, df-results').forEach(component => {
+        component.context = store.getContext('c0604b71c273c1fb3ef13eb2adfa4452', 'eu1');
+      });
+    });
+
+    document.addEventListener(ResultEvent.Click, function(event){
+      console.log(`Card clicked: '${event.detail.data.title}'`);
+    });
+  </script>
+</head>
+<body data-df-hashid="6a96504dc173514cab1e0198af92e6e9" data-df-zone="eu1">
+  <p>
+    <a href="/playground">← Playground</a>
+  </p>
+
+  <h1>Context JS API</h1>
+
+  <df-input-capture>
+    <input type="search" placeholder="Search something">
+    <button type="button" id="toggleContext">Toggle Context</button>
+  </df-input-capture>
+
+  <div>
+    <df-results></df-results>
+  </div>
+</body>
+</html>

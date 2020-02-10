@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>History</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script type="module">
+    import '@dfwc/input';
+    import '@dfwc/history';
+    import '@dfwc/total';
+
+    import { store } from '@dfwc/core';
+
+    const history = document.querySelector('#history');
+
+    document.querySelector('#show').addEventListener('click', function(e){
+      history.show();
+    });
+
+    document.querySelector('#add').addEventListener('click', function(e){
+      const entry = document.querySelector('#entry').value.trim();
+      if (entry.length > 0) {
+        history.addEntry(entry);
+      }
+    });
+
+    document.querySelector('#init').addEventListener('click', function(e){
+      history.entries = [
+        "periquito",
+        "pollito",
+        "capazo rojo",
+        "fundita",
+        "fundita roja",
+        "asterisco",
+        "cosa",
+        "silla de paseo",
+        "fundita roja y verde",
+        "capazo rojo"
+      ];
+    });
+
+    document.querySelector('#clear').addEventListener('click', function(e){
+      history.clear();
+    });
+
+    document.querySelector('#toggleContext').addEventListener('click', function(event) {
+      this.disabled = true;
+      document.querySelectorAll('df-input, df-history').forEach(component => {
+        component.context = store.getContext('c0604b71c273c1fb3ef13eb2adfa4452', 'eu1');
+      });
+    });
+  </script>
+</head>
+<body data-df-hashid="6a96504dc173514cab1e0198af92e6e9">
+  <p>
+    <a href="../index.html">← Playground</a>
+  </p>
+
+  <h1>History <df-total>10</df-total></h1>
+
+  <div class="m-b-1">
+    <df-input-capture>
+      <input id="input" type="search" placeholder="Search something">
+    </df-input-capture>
+    <button id="show">Show History</button>
+  </div>
+
+  <div class="m-b-1">
+    <input type="text" id="entry" placeholder="Type a search history entry">
+    <button id="add">Add Entry</button>
+  </div>
+
+  <div>
+    <button id="init">Init History</button>
+    <button id="clear">Clear All</button>
+    <button id="toggleContext">Toggle Context</button>
+  </div>
+
+  <df-history id="history" input="#input"></df-history>
+</body>
+</html>
