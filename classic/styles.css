@@ -1,0 +1,87 @@
+
+df-layer {
+  --df-price--color: white;
+  --df-price--background-color: blue;
+
+  --df-price--discounted--color: purple;
+  --df-price--discounted--background-color: yellow;
+
+  --df-price--outdated--color: #ccc;
+  --df-price--outdated--background-color: #000;
+
+  --df-price--padding-top: 4px;
+  --df-price--padding-right: 8px;
+  --df-price--padding-bottom: 4px;
+  --df-price--padding-left: 8px;
+
+  --df-image--background-color: #eee;
+}
+
+/*
+Missing:
+
+- z-index
+- default width / responsive width?
+- default height
+- width 100% doesn't work
+*/
+.df-layer-dialog {
+  z-index: 1000;
+  width: 100% !important; /* la capa pone la anchura que le sale de los huevos */
+  max-width: 1140px;
+
+  padding: 20px 20px 0;
+  background-color: white;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 21px auto 40px;
+  grid-template-areas:
+    ".      header"
+    "aside  content"
+    "aside  footer";
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.df-header {
+  grid-area: header;
+}
+
+.df-aside {
+  grid-area: aside;
+  overflow-y: scroll;
+
+  padding-bottom: 20px;
+}
+
+.df-content {
+  grid-area: content;
+  overflow: hidden; /* Necesario para que funcione el scroll de resultados */
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.df-content df-suggestions {
+  flex: 0 0 auto;
+}
+
+.df-content df-results {
+  flex: 1 1 auto;
+}
+
+.df-footer {
+  grid-area: footer;
+  text-align: right;
+  line-height: 30px;
+  color: #999;
+}
+
+df-panel {
+  margin-bottom: 10px;
+}
+
+df-panel:last-child {
+  margin-bottom: 0;
+}
