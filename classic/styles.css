@@ -85,3 +85,11 @@ df-panel {
 df-panel:last-child {
   margin-bottom: 0;
 }
+
+#search_input {
+  padding: 1em 1em;
+  border: 1px solid #c4c8d8;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
