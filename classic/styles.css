@@ -1,3 +1,19 @@
+.input-container {
+  text-align: center;
+}
+
+.input-container input {
+  width: 80%;
+  padding: 1em 1em;
+  border: 1px solid #c4c8d8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.input-container input:focus {
+  outline: none;
+}
+
 
 df-layer {
   --df-price--color: white;
@@ -14,7 +30,7 @@ df-layer {
   --df-price--padding-bottom: 4px;
   --df-price--padding-left: 8px;
 
-  --df-image--background-color: #eee;
+  --df-image--background-color: #ffffff;
 }
 
 /*
@@ -84,12 +100,4 @@ df-panel {
 
 df-panel:last-child {
   margin-bottom: 0;
-}
-
-#search_input {
-  padding: 1em 1em;
-  border: 1px solid #c4c8d8;
-  border-radius: 5px;
-  width: 100%;
-  margin-bottom: 10px;
 }
