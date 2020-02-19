@@ -14,6 +14,7 @@
     import 'https://cdn.doofinder.com/dev/v8/suggestions/suggestions.js';
     import 'https://cdn.doofinder.com/dev/v8/terms/terms.js';
     import 'https://cdn.doofinder.com/dev/v8/total/total.js';
+    import 'https://cdn.doofinder.com/dev/v8/input/input.js';
 
     import { setLanguage } from 'https://cdn.doofinder.com/dev/v8/core/core.js';
 
@@ -25,9 +26,9 @@
   <div class="input-container">
     <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
   </div>
-  <df-layer id="classic" class="df-layer-dialog" input="#search_input" positioned="auto"
-    positioned-reference="#search_input" positioned-margin-x="0" positioned-overflow="fix-all" -width="100%"
-    -max-width="1140" hashid="6a96504dc173514cab1e0198af92e6e9" hidden>
+  
+  <df-layer hashid="6a96504dc173514cab1e0198af92e6e9" positioned-reference="#search_input" hidden>
+    <df-input-capture input="#search_input" ></df-input-capture>
     <div class="df-header">
       <df-total></df-total>
     </div>
