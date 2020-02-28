@@ -1,0 +1,108 @@
+.content {
+    margin: 24px;
+  }
+  
+  .description,
+  .pricing {
+    margin-top: 16px;
+  }
+  
+  .description {
+    line-height: 1.5;
+  }
+  
+  .viewmore {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .viewmore:hover span {
+    text-decoration: underline;
+  }
+  
+  .rounded-button {
+    box-sizing: content-box;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: #ebf0fd;
+    color: #3165ee;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    transition: all .2s ease-out;
+  }
+  
+  .rounded-button:focus,
+  .rounded-button:hover {
+    background-color: #3165ee;
+    color: #fff;
+  }
+  
+  .rounded-button:focus {
+    box-shadow: 0 0 0 5px rgba(50, 101, 238, .25);
+  }
+  
+  /* AirPods Pro 1 */
+  
+  :host(.theme-airpods-1) {
+    position: relative;
+    width: 240px;
+    height: auto;
+    padding: 86px 32px 32px;
+    border-radius: 32px;
+    border-color: #eee;
+  }
+  
+  :host(.theme-airpods-1) df-image {
+    width: 200px;
+    align-self: center;
+  }
+  
+  :host(.theme-airpods-1) df-price {
+    color: whitesmoke;
+    background-color:rgb(50, 101, 238);
+    align-self: center;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  
+  :host(.theme-airpods-1) .title {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.25;
+    color: #3265ee;
+  }
+  
+  :host(.theme-airpods-1) .viewmore {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 1em;
+    color: #3265ee;
+  }
+  
+  :host(.theme-airpods-1) .viewmore df-icon {
+    margin-left: -1px;
+    margin-top: 1px;
+  }
+  
+  :host(.theme-airpods-1) .rounded-button {
+    position: absolute;
+    z-index: 1;
+    top: 24px;
+  }
+  
+  :host(.theme-airpods-1) #fav {
+    left: 24px;
+  }
+  
+  :host(.theme-airpods-1) #cart {
+    right: 24px;
+  }
+  
