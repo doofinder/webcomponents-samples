@@ -12,12 +12,8 @@
     import { store, setLanguage } from 'https://cdn.doofinder.com/dev/v8/core/core.js';
     import 'https://cdn.doofinder.com/dev/v8/webcomponents/webcomponents.js';
 
-    // Do an initial query with "silla" term. This code is optional.
+    // Do an initial query with "orinal" term.
     let context = store.getContext("6a96504dc173514cab1e0198af92e6e9", "EU1"); 
-
-    // Change currency
-    setLanguage("es");
-
     context.query.text = "orinal";
     context.search();   
   </script>
@@ -28,6 +24,7 @@
     <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
   </div>
 
+  <!-- Card template definition -->
   <script type="text/x-template" id="card_template">
     <button class="rounded-button" id="fav"><df-icon shape="favorite" style="position: relative; top: 1px;"></df-icon></button>
     <button class="rounded-button" id="cart"><df-icon shape="add_shopping_cart" style="position: relative; top: 2px; left: 1px;"></df-icon></button>
@@ -42,7 +39,8 @@
     <a class="viewmore" href="#detail"><span>See the details</span><df-icon shape="chevron_right"></df-icon></a>
   </script>
 
-  <template id="result_template">
+  <!-- Result template definition -->
+  <template id="grid_template">
     <df-card class="theme-airpods-1" .data=${context.data} .currency=${context.currency} template="#card_template"></df-card>
   </template>
 
@@ -61,7 +59,8 @@
       <df-range-filter field="best_price" currency="EUR"></df-range-filter>
     </div>
     <div class="df-content">
-      <df-results grid-layout="#result_template" infinite></df-results>
+      <!-- Using new grid layout template -->
+      <df-results grid-layout="#grid_template" infinite></df-results>
     </div>
     <div class="df-footer">
       Powered by Doofinder
