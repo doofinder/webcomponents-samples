@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.input-container {
+  text-align: center;
+  padding: 0 0;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 1em 1em;
+  border: 1px solid #c4c8d8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.input-container input:focus {
+  outline: none;
+}
+
+
+df-layer {
+  display: grid;
+  width: 95%;
+  margin: 0 auto;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 21px auto 40px;
+  grid-template-areas:
+    ".      header"
+    "aside  content"
+    "aside  footer";
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+
+  --df-price--color: white;
+  --df-price--background-color: blue;
+
+  --df-price--discounted--color: purple;
+  --df-price--discounted--background-color: yellow;
+
+  --df-price--outdated--color: #ccc;
+  --df-price--outdated--background-color: #000;
+
+  --df-price--padding-top: 4px;
+  --df-price--padding-right: 8px;
+  --df-price--padding-bottom: 4px;
+  --df-price--padding-left: 8px;
+
+  --df-image--background-color: #ffffff;
+}
+
+.df-header {
+  grid-area: header;
+}
+
+.df-aside {
+  grid-area: aside;
+  overflow-y: scroll;
+
+  padding-bottom: 20px;
+}
+
+.df-content {
+  grid-area: content;
+  overflow: hidden; /* Necesario para que funcione el scroll de resultados */
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.df-content df-suggestions {
+  flex: 0 0 auto;
+}
+
+.df-content df-results {
+  flex: 1 1 auto;
+}
+
+.df-footer {
+  grid-area: footer;
+  text-align: right;
+  line-height: 30px;
+  color: #999;
+}
+
+df-panel {
+  margin-bottom: 10px;
+}
+
+df-panel:last-child {
+  margin-bottom: 0;
+}
