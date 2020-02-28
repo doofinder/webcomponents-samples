@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Doofinder Classic layer code sample</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="module">
+    import { store } from 'https://cdn.doofinder.com/dev/v8/core/core.js';
+    import 'https://cdn.doofinder.com/dev/v8/webcomponents/webcomponents.js';
+
+    // Do an initial query with "silla" term. This code is optional.
+    let context = store.getContext("6a96504dc173514cab1e0198af92e6e9", "EU1"); 
+    context.query.text = "silla";
+    context.search();
+  </script>
+</head>
+
+<body>
+  <div class="input-container">
+    <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
+  </div>
+
+  <df-layer hashid="6a96504dc173514cab1e0198af92e6e9" positioned-reference="#search_input" positioned-overflow="fix-all"
+    positioned="auto" hidden>
+    <df-input-capture input="#search_input"></df-input-capture>
+    <div class="df-header">
+      <df-total></df-total>
+    </div>
+    <div class="df-aside">
+      <h2>Filter by Category</h2>
+      <df-term-list field="categories"></df-term-list>
+      <h2>Filter by Brand</h2>
+      <df-term-list field="brand"></df-term-list>
+      <h2>Filter by Price</h2>
+      <df-range-filter field="best_price" currency="EUR"></df-range-filter>
+    </div>
+    <div class="df-content">
+      <!-- Add result component without infinite pagination -->
+      <df-results></df-results>
+      <!-- Add pager component -->
+      <df-pager></df-page>
+    </div>
+    <div class="df-footer">
+      Powered by Doofinder
+    </div>
+  </df-layer>
+</body>
+</html>
