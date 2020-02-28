@@ -9,7 +9,7 @@ The following code examples show you how to implement some use cases.
 - Add to cart button
 - Price discount
 - Fullscreen layer
-- Select result layout
+- [Select result layout](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/select-result-layout)
 - Add helper function
 - Change some stuff in context (currency, language)
 - Did you mean 
