@@ -12,7 +12,7 @@
 
     // Do an initial query with "silla" term. This code is optional.
     let context = store.getContext("e6d7ce0b612dd38bd67c534e97bb1734", "EU1"); 
-    context.query.text = "silla";
+    context.query.text = "hat";
     context.search();   
   </script>
 </head>
@@ -47,6 +47,15 @@
       </df-tags-filter>
       <h2>Size</h2>
       <df-tags-filter field="g:size" order="asc"></df-tags-filter>
+      <!-- Selected tags-->
+      <h2>Size Selected</h2>
+      <df-tags-filter field="g:size" order="asc">
+        <df-tag>XS</df-tag>
+        <df-tag>S</df-tag>
+        <df-tag>M</df-tag>
+        <df-tag>L</df-tag>
+        <df-tag>XL</df-tag>
+      </df-tags-filter>
     </div>
     
     <div class="df-content">
