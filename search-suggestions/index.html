@@ -30,16 +30,16 @@
     </div>
     <div class="df-aside">
       <h2>Filter by Category</h2>
-      <df-term-list field="categories"></df-term-list>
+      <df-terms-filter field="categories"></df-terms-filter>
       <h2>Filter by Brand</h2>
-      <df-term-list field="brand"></df-term-list>
+      <df-terms-filter field="brand"></df-terms-filter>
       <h2>Filter by Price</h2>
       <df-range-filter field="best_price" currency="EUR"></df-range-filter>
     </div>
     <div class="df-content">
 
       <!-- Added the suggestions component -->
-      <df-suggestion-list hidden></df-suggestion-list>
+      <df-suggestions></df-suggestions>
       
       <df-results infinite></df-results>
     </div>
