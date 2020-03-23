@@ -67,6 +67,7 @@ df-layer {
 
 .df-content {
   grid-area: content;
+  height: 800px;
   overflow: hidden; /* Necesario para que funcione el scroll de resultados */
 
   display: flex;
