@@ -7,6 +7,7 @@ The following code examples show you how to implement some use cases.
 - [Change items template](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/change_card_template)
 - [Pagination](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/pagination)
 - [Tags Filter](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/tags_filter)
+- [Image Search](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/image_capture)
 - Add to cart button
 - Price discount
 - Fullscreen layer
