@@ -23,7 +23,6 @@ body {
   outline: none;
 }
 
-
 df-layer {
   display: grid;
   width: 95%;
@@ -68,8 +67,7 @@ df-layer {
 .df-content {
   grid-area: content;
   height: 800px;
-  overflow: hidden; /* Necesario para que funcione el scroll de resultados */
-
+  overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
 }

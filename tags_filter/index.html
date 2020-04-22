@@ -7,12 +7,12 @@
   <title>Doofinder Classic layer code sample</title>
   <link rel="stylesheet" href="./styles.css" />
   <script type="module">
-    import { store } from 'https://cdn.doofinder.com/dev/v8/core/core.js';
+    import { Context } from 'https://cdn.doofinder.com/dev/v8/core/core.js';
     import 'https://cdn.doofinder.com/dev/v8/webcomponents/webcomponents.js';
 
     // Do an initial query with "silla" term. This code is optional.
-    let context = store.getContext("e6d7ce0b612dd38bd67c534e97bb1734", "EU1"); 
-    context.query.text = "hat";
+    let context = Context.getContext("7a6100c782c09126479e9270ecc619b3", "EU1"); 
+    context.query.text = "camisa";
     context.search();   
   </script>
 </head>
@@ -22,39 +22,37 @@
     <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
   </div>
 
-  <df-layer hashid="e6d7ce0b612dd38bd67c534e97bb1734" positioned-reference="#search_input" positioned-overflow="fix-all"
+  <df-layer hashid="7a6100c782c09126479e9270ecc619b3" positioned-reference="#search_input" positioned-overflow="fix-all"
     positioned="auto" hidden>
     <df-input-capture input="#search_input"></df-input-capture>
     <div class="df-header">
-      <df-total></df-total>
+      Total Found: <df-info key="total_found"></df-info>
     </div>
     <div class="df-aside">
       <h2>Color</h2>
-      <df-tags-filter field="g:color">
-        <df-tag type="color" color="#171717">Schwarz</df-tag>
-        <df-tag type="color" color="#ed2929">Rot</df-tag>
-        <df-tag type="color" color="#005aff">Blau</df-tag>
-        <df-tag type="color" color="#acacac">Grau</df-tag>
-        <df-tag type="color" color="#ffd83c">Gelb</df-tag>
-        <df-tag type="color" color="#4ba049">Grün</df-tag>
-        <df-tag type="color" color="#ff9000">Orange</df-tag>
-        <df-tag type="color" color="#956440">Braun</df-tag>
-        <df-tag type="color" color="#f4efd1">Beige</df-tag>
-        <df-tag type="color" color="#ffffff">Weiß</df-tag>
-        <df-tag type="color" color="#a12ca0">Lila</df-tag>
-        <df-tag type="color" color="#ff74fa">Pink</df-tag>
-        <df-tag type="color" color="#5f895b">Oliv</df-tag>
+      <df-tags-filter field="color">
+        <df-tag type="color" color="#1e3be3">Blue</df-tag>
+        <df-tag type="color" color="#000">Black</df-tag>
+        <df-tag type="color" color="#808080">Grey</df-tag>
+        <df-tag type="color" color="#ff0000">Red</df-tag>
+        <df-tag type="color" color="#008000">Green</df-tag>
+        <df-tag type="color" color="#a52a2a">Brown</df-tag>
+        <df-tag type="color" color="#fff">White</df-tag>
+        <df-tag type="color" color="#f5f5dc">Beige</df-tag>
       </df-tags-filter>
+      <h2>Color</h2>
+      <df-tags-filter field="color"></df-tags-filter>
       <h2>Size</h2>
-      <df-tags-filter field="g:size" order="asc"></df-tags-filter>
+      <df-tags-filter field="size" order="asc"></df-tags-filter>
       <!-- Selected tags-->
       <h2>Size Selected</h2>
-      <df-tags-filter field="g:size" order="asc">
+      <df-tags-filter field="size" order="asc">
         <df-tag>XS</df-tag>
         <df-tag>S</df-tag>
         <df-tag>M</df-tag>
         <df-tag>L</df-tag>
         <df-tag>XL</df-tag>
+        <df-tag>XXL</df-tag>
       </df-tags-filter>
     </div>
     
