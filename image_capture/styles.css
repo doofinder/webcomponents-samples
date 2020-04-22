@@ -1,16 +1,4 @@
 df-layer {
-  display: grid;
-  width: 95%;
-  margin: 0 auto;
-  grid-template-columns: 3fr;
-  grid-template-rows: 21px auto 40px;
-  grid-template-areas:
-    "header"
-    "content"
-    "footer";
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-
   --df-price--color: white;
   --df-price--background-color: blue;
 
@@ -28,19 +16,7 @@ df-layer {
   --df-image--background-color: #ffffff;
 }
 
-.df-header {
-  grid-area: header;
-}
-
-.df-content {
-  height: 800px;
-  grid-area: content;
-  overflow: hidden;
-
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.df-content df-results {
-  flex: 1 1 auto;
+df-results {
+  width: 100%;
+  position: fixed;
 }
