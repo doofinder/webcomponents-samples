@@ -27,20 +27,3 @@ df-layer {
 
   --df-image--background-color: #ffffff;
 }
-
-.df-header {
-  grid-area: header;
-}
-
-.df-content {
-  height: 800px;
-  grid-area: content;
-  overflow: hidden;
-
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.df-content df-results {
-  flex: 1 1 auto;
-}

@@ -2,7 +2,7 @@
 
 The following code examples show you how to implement some use cases. 
 
-- <a href="https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/basic-config" target="_blank">Basic Config</a>
+- [Basic Config](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/basic-config)
 - [Input Widget](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/df_input_widget)
 - [Search Suggestions](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/search-suggestions)
 - [Change items template](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/change_card_template)
