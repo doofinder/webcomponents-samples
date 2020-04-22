@@ -23,7 +23,6 @@ body {
   outline: none;
 }
 
-
 df-layer {
   display: grid;
   width: 95%;
@@ -61,15 +60,13 @@ df-layer {
 .df-aside {
   grid-area: aside;
   overflow-y: scroll;
-
   padding-bottom: 20px;
 }
 
 .df-content {
   height: 800px;
   grid-area: content;
-  overflow: hidden; /* Necesario para que funcione el scroll de resultados */
-
+  overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
 }
