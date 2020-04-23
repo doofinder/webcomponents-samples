@@ -75,6 +75,7 @@ df-layer {
 }
 
 .df-content df-suggestions {
+  display:inline;
   flex: 0 0 auto;
 }
 
