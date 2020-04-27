@@ -11,30 +11,31 @@ df-layer {
   position: absolute;
   overflow: hidden;
   min-height: 400px;
+  width: 60%;
   height: 90%;
   top: 27px;
-  width: 950px;
   left: 0;
   right: 0;
   margin: 0 auto;
   display: block;
-  --df-price--color: white;
-  --df-price--background-color: blue;
 
-  --df-price--discounted--color: purple;
-  --df-price--discounted--background-color: yellow;
-
-  --df-price--outdated--color: #ccc;
-  --df-price--outdated--background-color: #000;
-
-  --df-price--padding-top: 4px;
-  --df-price--padding-right: 8px;
-  --df-price--padding-bottom: 4px;
-  --df-price--padding-left: 8px;
-
+  --df-price--discounted--color:#f30018;
+  
   --df-image--background-color: #ffffff;
-  --df-results--columns: 5;
   --df-results--column-width: calc((100% / 6) - 50px);
+  --df-results--columns: 4;
+  --df-results--max-column-width: 1fr;
+  --df-card--content--margin-left: 0.8em;
+  --df-card--content--margin-right: 0.8em;
+  --df-card--content--margin-top: 0.8em;
+  --df-card--content--margin-bottom: 0.8em;
+}
+
+@media screen and (max-width: 960px) {
+  df-layer {
+    width: 100%;
+    --df-results--columns: 3;
+  }
 }
 
 .df-layer--content {
@@ -68,14 +69,26 @@ df-layer {
   width: 25%;
   position: relative;
   background-color: #fafafa;
-  padding: 32px 10px 0;
   border-left: 1px solid #eee;
   overflow: hidden;
   overflow-y: scroll;
 }
 
-.df-aside h2{
-  font-size: 1.2em;
+.df-aside .df-aside--content {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  padding-left: 10px; 
+  padding-right: 10px;
+  top: 32px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.df-aside .df-aside--content h2{
+  font-size: 1.1em;
 }
 
 .df-icon-list {
@@ -104,6 +117,12 @@ df-layer {
 
 df-results {
   padding: 10px;
+  padding-bottom: 32px;
+}
+
+df-results[layout="list"] {
+  border: 1px solid black;
+  
 }
 
 df-input-capture {

@@ -17,7 +17,13 @@
     document.querySelector('#close_button').onclick = function(e){
       document.querySelector('#df-classic').hide();
     };
-      
+
+    document.querySelector('a[data-change-layout="grid"]').onclick = function(e){
+      document.querySelector('#df-results').layout = 'grid';
+    };
+    document.querySelector('a[data-change-layout="list"]').onclick = function(e){
+      document.querySelector('#df-results').layout = 'list';
+    };
   </script>
   
 </head>
@@ -39,16 +45,18 @@
     <df-input-capture input="#search_input"></df-input-capture>
     <div class="df-layer--content">
       <div class="df-aside">
-        <h2>Filter by Gender</h2>
-        <df-terms-filter field="gender"></df-terms-filter>
-        <h2>Filter by Condition</h2>
-        <df-terms-filter field="condition"></df-terms-filter>
-        <h2>Color</h2>
-        <df-terms-filter field="color"></df-terms-filter>
-        <h2>Size</h2>
-        <df-terms-filter field="size"></df-terms-filter>
-        <h2>Filter by Price</h2>
-        <df-range-filter field="best_price" currency="EUR"></df-range-filter>
+        <div class="df-aside--content">
+          <h2>Filter by Gender</h2>
+          <df-terms-filter field="gender"></df-terms-filter>
+          <h2>Filter by Condition</h2>
+          <df-terms-filter field="condition"></df-terms-filter>
+          <h2>Color</h2>
+          <df-terms-filter field="color"></df-terms-filter>
+          <h2>Size</h2>
+          <df-terms-filter field="size"></df-terms-filter>
+          <h2>Filter by Price</h2>
+          <df-range-filter field="best_price" currency="EUR"></df-range-filter>
+        </div>
       </div>
       <div class="df-main">
         <div class="df-header">
@@ -66,7 +74,7 @@
           </a></div>
           <div class="df-header-title"><span>Results: <span data-role="total"><df-info key="total_found"></df-info></span></span></div>
         </div>
-        <df-results infinite></df-results>
+        <df-results id="df-results" infinite></df-results>
       </div>
     </div>
     <div class="df-footer">
