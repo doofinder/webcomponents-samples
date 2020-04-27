@@ -17,7 +17,13 @@
     document.querySelector('#close_button').onclick = function(e){
       document.querySelector('#df-classic').hide();
     };
-      
+
+    document.querySelector('a[data-change-layout="grid"]').onclick = function(e){
+      document.querySelector('#df-results').layout = 'grid';
+    };
+    document.querySelector('a[data-change-layout="list"]').onclick = function(e){
+      document.querySelector('#df-results').layout = 'list';
+    };
   </script>
   
 </head>
@@ -33,44 +39,24 @@
 
     <p>Curabitur quis nulla ligula. Nulla fermentum est in metus accumsan, ac blandit magna aliquet. Proin placerat commodo aliquet. Quisque vel felis vitae quam egestas sagittis. Phasellus sit amet feugiat eros. Nullam a ipsum vel tortor mollis ullamcorper. Cras pretium lectus sit amet ex rutrum convallis. Vivamus luctus tincidunt diam.</p>
     
-    
+    <!-- Doofinder layer definition -->
     <df-layer id="df-classic" hashid="7a6100c782c09126479e9270ecc619b3" positioned-reference="#query-input"
     positioned="auto" hidden>
     <df-input-capture input="#search_input"></df-input-capture>
     <div class="df-layer--content">
       <div class="df-aside">
-        <h2>Filter by Gender</h2>
-        <df-terms-filter field="gender"></df-terms-filter>
-        <h2>Filter by Condition</h2>
-        <df-terms-filter field="condition"></df-terms-filter>
-        <h2>Color</h2>
-        <df-tags-filter field="color">
-          <df-tag type="color" color="#1e3be3">Blue</df-tag>
-          <df-tag type="color" color="#000080">Navy Blue</df-tag>
-          <df-tag type="color" color="#000">Black</df-tag>
-          <df-tag type="color" color="#808080">Grey</df-tag>
-          <df-tag type="color" color="#ff0000">Red</df-tag>
-          <df-tag type="color" color="#008000">Green</df-tag>
-          <df-tag type="color" color="#a52a2a">Brown</df-tag>
-          <df-tag type="color" color="#fff">White</df-tag>
-          <df-tag type="color" color="#f5f5dc">Beige</df-tag>
-          <df-tag type="color" color="#ffc0cb">Pink</df-tag>
-          <df-tag type="color" color="#ffe6ea">beige-pink</df-tag>
-          <df-tag type="color" color="#f0e68c">Khaki</df-tag>
-          <df-tag type="color" color="#4b0082">Indigo</df-tag>
-          <df-tag type="color" color="#ffff00">Yellow</df-tag>
-        </df-tags-filter>
-        <h2>Size Selected</h2>
-        <df-tags-filter field="size" order="asc">
-          <df-tag>XS</df-tag>
-          <df-tag>S</df-tag>
-          <df-tag>M</df-tag>
-          <df-tag>L</df-tag>
-          <df-tag>XL</df-tag>
-          <df-tag>XXL</df-tag>
-        </df-tags-filter>
-        <h2>Filter by Price</h2>
-        <df-range-filter field="best_price" currency="EUR"></df-range-filter>
+        <div class="df-aside--content">
+          <h2>Filter by Gender</h2>
+          <df-terms-filter field="gender"></df-terms-filter>
+          <h2>Filter by Condition</h2>
+          <df-terms-filter field="condition"></df-terms-filter>
+          <h2>Color</h2>
+          <df-terms-filter field="color"></df-terms-filter>
+          <h2>Size</h2>
+          <df-terms-filter field="size"></df-terms-filter>
+          <h2>Filter by Price</h2>
+          <df-range-filter field="best_price" currency="EUR"></df-range-filter>
+        </div>
       </div>
       <div class="df-main">
         <div class="df-header">
@@ -88,7 +74,7 @@
           </a></div>
           <div class="df-header-title"><span>Results: <span data-role="total"><df-info key="total_found"></df-info></span></span></div>
         </div>
-        <df-results infinite></df-results>
+        <df-results id="df-results" infinite></df-results>
       </div>
     </div>
     <div class="df-footer">
@@ -163,6 +149,6 @@
     <a id="close_button" class="df-icon df-icon--close" href="#"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></a>
     
   </df-layer>
-    
+  <!-- End Doofinder layer definition -->
 </body>
 </html>
