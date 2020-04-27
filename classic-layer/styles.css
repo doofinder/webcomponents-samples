@@ -1,0 +1,145 @@
+body {
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
+df-layer {
+  background-color: white;
+  color: #333;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  position: absolute;
+  overflow: hidden;
+  min-height: 400px;
+  height: 90%;
+  top: 27px;
+  width: 950px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: block;
+  --df-price--color: white;
+  --df-price--background-color: blue;
+
+  --df-price--discounted--color: purple;
+  --df-price--discounted--background-color: yellow;
+
+  --df-price--outdated--color: #ccc;
+  --df-price--outdated--background-color: #000;
+
+  --df-price--padding-top: 4px;
+  --df-price--padding-right: 8px;
+  --df-price--padding-bottom: 4px;
+  --df-price--padding-left: 8px;
+
+  --df-image--background-color: #ffffff;
+  --df-results--columns: 5;
+  --df-results--column-width: calc((100% / 6) - 50px);
+}
+
+.df-layer--content {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  position: static;
+  height: calc(100% - 30px);
+  padding: 0;
+  margin: 0;
+  flex-direction: row-reverse!important;
+  overflow: hidden;
+}
+
+.df-main {
+  flex: 1 0 280px;
+  width: 75%;
+}
+
+.df-header {
+  display: flex;
+  height: 23px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  padding: 4px;
+}
+
+.df-aside {
+  flex: 0 0 auto;
+  display: block;
+  width: 25%;
+  position: relative;
+  background-color: #fafafa;
+  padding: 32px 10px 0;
+  border-left: 1px solid #eee;
+  overflow: hidden;
+}
+
+.df-aside h2{
+  font-size: 1.2em;
+}
+
+.df-icon-list {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.df-icon {
+  display: inline-block;
+  line-height: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.df-icon svg {
+    fill: #747474;
+}
+
+.df-header .df-header-title:last-child {
+  text-align: center;
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+df-results {
+  padding: 10px;
+}
+
+df-input-capture {
+  display: none;
+}
+
+df-layer .df-icon--close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.df-footer {
+  border-top: 1px solid #ccc;
+  text-align: right;
+  padding: 3px;
+}
+
+.df-footer .doofinderLogo {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  color: #606569!important;
+  font-size: 12px!important;
+  line-height: 1.5;
+  text-decoration: none!important;
+  padding-right: 5px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+}
+
+.doofinderLogo svg {
+  width: auto;
+  height: 2em;
+  margin-left: .2em;
+}
