@@ -101,10 +101,7 @@ df-layer {
   line-height: 24px;
   width: 24px;
   height: 24px;
-}
-
-.df-icon svg {
-    fill: #747474;
+  color:  #747474;
 }
 
 .df-header .df-header-title:last-child {
@@ -118,11 +115,6 @@ df-layer {
 df-results {
   padding: 10px;
   padding-bottom: 32px;
-}
-
-df-results[layout="list"] {
-  border: 1px solid black;
-  
 }
 
 df-input-capture {
@@ -141,7 +133,18 @@ df-layer .df-icon--close {
   padding: 3px;
 }
 
-.df-footer .doofinderLogo {
+.df-footer .doofinder-logo {
+  display: inline-block;
+  background-image: url(doofinder-logo.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 1em;
+  width: 59px;
+  height: 1.6em;
+  color:transparent;
+}
+
+.df-footer .doofinder-link {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
