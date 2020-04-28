@@ -4,6 +4,12 @@ body {
 }
 
 df-layer {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+  "header   header"
+  "results  filters"
+  "footer   footer";
   background-color: white;
   color: #333;
   border: 1px solid #cccccc;
@@ -17,7 +23,6 @@ df-layer {
   left: 0;
   right: 0;
   margin: 0 auto;
-  display: block;
 
   --df-price--discounted--color:#f30018;
   
@@ -38,35 +43,32 @@ df-layer {
   }
 }
 
-.df-layer--content {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  position: static;
-  height: calc(100% - 30px);
-  padding: 0;
-  margin: 0;
-  flex-direction: row-reverse!important;
-  overflow: hidden;
-}
-
-.df-main {
-  flex: 1 0 280px;
-  width: 75%;
-}
-
-.df-header {
-  display: flex;
+df-layer .header {
+  grid-area: header;
   height: 23px;
   border-bottom: 1px solid #eee;
   align-items: center;
   padding: 4px;
 }
 
-.df-aside {
-  flex: 0 0 auto;
+df-layer .layout-options {
   display: block;
-  width: 25%;
+  float: left;
+}
+
+df-layer .df-icon {
+  color:  #747474;
+}
+
+df-layer .header .title {
+  display:block;
+  text-align: center;
+  line-height: 23px;
+}
+
+df-layer .filters {
+  padding: 10px;
+  grid-area: filters;
   position: relative;
   background-color: #fafafa;
   border-left: 1px solid #eee;
@@ -74,42 +76,16 @@ df-layer {
   overflow-y: scroll;
 }
 
-.df-aside .df-aside--content {
-  -webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: absolute;
-  padding-left: 10px; 
-  padding-right: 10px;
-  top: 32px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.df-aside .df-aside--content h2{
+df-layer .filters h2{
   font-size: 1.1em;
 }
 
-.df-icon-list {
-  display: flex;
-  flex-flow: row nowrap;
+df-layer .results {
+  grid-area: results;
 }
 
-.df-icon {
-  display: inline-block;
-  line-height: 24px;
-  width: 24px;
-  height: 24px;
-  color:  #747474;
-}
-
-.df-header .df-header-title:last-child {
-  text-align: center;
-  -webkit-box-flex: 2;
-  -webkit-flex: 2;
-  -ms-flex: 2;
-  flex: 2;
+df-layer .footer {
+  grid-area: footer;
 }
 
 df-results {
@@ -127,13 +103,14 @@ df-layer .df-icon--close {
   right: 4px;
 }
 
-.df-footer {
+df-layer .footer {
+  width: 100%;
   border-top: 1px solid #ccc;
   text-align: right;
   padding: 3px;
 }
 
-.df-footer .doofinder-logo {
+df-layer .footer .doofinder-logo {
   display: inline-block;
   background-image: url(doofinder-logo.svg);
   background-repeat: no-repeat;
@@ -144,7 +121,7 @@ df-layer .df-icon--close {
   color:transparent;
 }
 
-.df-footer .doofinder-link {
+df-layer .footer .doofinder-link {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -159,10 +136,4 @@ df-layer .df-icon--close {
   -ms-flex-align: center;
   align-items: center;
 
-}
-
-.doofinderLogo svg {
-  width: auto;
-  height: 2em;
-  margin-left: .2em;
 }
