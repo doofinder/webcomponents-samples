@@ -46,37 +46,31 @@
     <!-- Doofinder layer definition -->
     <df-layer id="df-classic" hashid="7a6100c782c09126479e9270ecc619b3" positioned-reference="#query-input"
     positioned="auto" hidden>
-    <df-input-capture input="#search_input"></df-input-capture>
-    <div class="df-layer--content">
-      <div class="df-aside">
-        <div class="df-aside--content">
-          <h2>Filter by Gender</h2>
-          <df-terms-filter field="gender"></df-terms-filter>
-          <h2>Filter by Condition</h2>
-          <df-terms-filter field="condition"></df-terms-filter>
-          <h2>Color</h2>
-          <df-terms-filter field="color"></df-terms-filter>
-          <h2>Size</h2>
-          <df-terms-filter field="size"></df-terms-filter>
-          <h2>Filter by Price</h2>
-          <df-range-filter field="best_price" currency="EUR"></df-range-filter>
+      <df-input-capture input="#search_input"></df-input-capture>
+      <div class="header">
+        <div class="layout-options">
+          <a class="df-icon" href="#" data-change-layout="list"><span class="material-icons">view_stream</span></a>
+          <a class="df-icon" href="#" data-change-layout="grid"><span class="material-icons">view_module</span></a>
         </div>
+        <div class="title"><span>Results: <span data-role="total"><df-info key="total_found"></df-info></span></span></div>
+        <a id="close_button" class="df-icon df-icon--close" href="#"><span class="material-icons">highlight_off</span></a>
       </div>
-      <div class="df-main">
-        <div class="df-header">
-          <div class="df-icon-list">
-            <a class="df-icon" href="#" data-change-layout="list"><span class="material-icons">view_stream</span></a>
-            <a class="df-icon" href="#" data-change-layout="grid"><span class="material-icons">view_module</span></a>
-          </div>
-          <div class="df-header-title"><span>Results: <span data-role="total"><df-info key="total_found"></df-info></span></span></div>
-        </div>
-        <df-results id="df-results" infinite></df-results>
+      <div class="filters">
+        <h2>Filter by Gender</h2>
+        <df-terms-filter field="gender"></df-terms-filter>
+        <h2>Filter by Condition</h2>
+        <df-terms-filter field="condition"></df-terms-filter>
+        <h2>Color</h2>
+        <df-terms-filter field="color"></df-terms-filter>
+        <h2>Size</h2>
+        <df-terms-filter field="size"></df-terms-filter>
+        <h2>Filter by Price</h2>
+        <df-range-filter field="best_price" currency="EUR"></df-range-filter>
       </div>
-    </div>
-    <div class="df-footer">
-      <a class="doofinder-link" href="https://www.doofinder.com?mktcod=REF1&amp;utm_source=referrals&amp;utm_medium=REF1" target="_blank" rel="noopener noreferer">Powered by <span class="doofinder-logo"> Doofinder</span></a>
-    </div>
-    <a id="close_button" class="df-icon df-icon--close" href="#"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></a>
+      <df-results id="df-results" infinite></df-results>
+      <div class="footer">
+        <a class="doofinder-link" href="https://www.doofinder.com?mktcod=REF1&amp;utm_source=referrals&amp;utm_medium=REF1" target="_blank" rel="noopener noreferer">Powered by <span class="doofinder-logo"> Doofinder</span></a>
+      </div>
   </df-layer>
   <!-- End Doofinder layer definition -->
 </body>
