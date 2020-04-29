@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Classic Layer</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module">
+    import { Context, ContextTopic } from 'https://cdn.doofinder.com/dev/v8/core/core.js';
+    import 'https://cdn.doofinder.com/dev/v8/webcomponents/webcomponents.js';
+
+    // hide layer when the search dialog is closed
+    document.querySelector('#close_button').onclick = function(e){
+      document.querySelector('#df-fullscreen').hide();
+      document.querySelector('.df-aside').hidden = true;
+      document.querySelector('df-results').hidden = true;
+      document.querySelector('.results').hidden = true;
+    };
+
+    // subscribe to search response event to show some layer areas
+    let context = Context.getContext('7a6100c782c09126479e9270ecc619b3');
+    subscription = context.subscribe(ContextTopic.SearchResponse, (response) => {
+      document.querySelector('.df-aside').hidden = false;
+      document.querySelector('df-results').hidden = false;
+      document.querySelector('.results').hidden = false;
+    });
+  </script>
+  
+</head>
+<body>
+    <p>
+      <a id="search_input" class="df-icon" href="#" data-change-layout="list"><span class="material-icons">search</span></a>
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada feugiat diam ut congue. Quisque congue, tortor nec aliquet ultrices, metus nisl gravida metus, vel lacinia urna ex quis orci. Praesent quis malesuada ipsum, quis fringilla dolor. Etiam varius est a elit viverra varius. Vestibulum eget dolor sapien. Ut dictum molestie neque id consequat. Morbi porta ornare tortor vel laoreet. Aenean luctus pharetra vulputate.</p>
+
+    <p>Nulla convallis convallis purus sit amet tincidunt. Nulla viverra a augue eu dapibus. Aliquam nibh tortor, mattis vel arcu eu, tristique fringilla justo. Vestibulum nibh velit, viverra tempus luctus non, placerat ut lacus. In cursus tellus felis, eu pharetra erat auctor sed. Aliquam tincidunt vehicula porttitor. Nullam in pellentesque purus. Vestibulum cursus vulputate ex eu interdum. Nam volutpat dolor vel semper hendrerit. In vestibulum elit eu est laoreet, sed dictum nunc volutpat. Aenean rhoncus, ante vitae imperdiet tristique, ex purus pellentesque eros, sodales interdum metus nunc a tellus.</p>
+
+    <p>Morbi mattis dictum pellentesque. Morbi facilisis arcu in lacus interdum, et suscipit arcu congue. Nulla faucibus, diam et tempus bibendum, leo dolor commodo quam, a fermentum quam odio a nunc. Maecenas egestas tellus metus, a porttitor nibh luctus non. Nam aliquet, urna sed dapibus malesuada, orci nisl aliquam nisl, nec ultrices nisi quam quis orci. Aenean lacinia arcu non sollicitudin tempor. Phasellus aliquam urna ut nisl sodales, nec dignissim lacus pharetra.</p>
+
+    <p>Proin molestie odio sollicitudin lectus venenatis maximus. Vestibulum bibendum arcu at tortor vehicula congue. Pellentesque ac mauris purus. Aliquam dapibus metus venenatis ligula sagittis ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam tempor dui sed blandit feugiat. Nunc et dui eu felis hendrerit sagittis in quis lacus. Aliquam facilisis neque id lectus tristique, sodales mattis turpis suscipit. Donec eleifend ac nisi ac finibus. Aenean non enim nibh. Maecenas laoreet faucibus venenatis. Fusce tincidunt vitae libero egestas lobortis. Morbi pulvinar nisl vitae diam aliquet iaculis. Fusce ac suscipit libero, sed eleifend tortor. Quisque aliquam lacus sit amet tempor finibus. Nunc lorem mi, vehicula a fermentum nec, consequat sed est.</p>
+
+    <p>Curabitur quis nulla ligula. Nulla fermentum est in metus accumsan, ac blandit magna aliquet. Proin placerat commodo aliquet. Quisque vel felis vitae quam egestas sagittis. Phasellus sit amet feugiat eros. Nullam a ipsum vel tortor mollis ullamcorper. Cras pretium lectus sit amet ex rutrum convallis. Vivamus luctus tincidunt diam.</p>
+    
+    <!-- Doofinder layer definition -->
+    <df-layer 
+            id="df-fullscreen"
+            class="df-layer-fullscreen"
+            hashid="7a6100c782c09126479e9270ecc619b3"
+            display="fullscreen"
+            display-trigger="#search_input"
+            hidden>
+            
+      <div class="df-header">
+        <div id="close_button"><a  class="df-icon df-icon--close" href="#"><span class="material-icons">close</span></a></div>
+        <df-input hashid="7a6100c782c09126479e9270ecc619b3"></df-input>
+        <div class="results" hidden>Results: <df-info key="total_found"></df-info></div>
+      </div>
+      <div class="df-aside" hidden>
+        <h2>Filter by Gender</h2>
+        <df-terms-filter field="gender"></df-terms-filter>
+        <h2>Filter by Condition</h2>
+        <df-terms-filter field="condition"></df-terms-filter>  
+        <h2>Filter by Color</h2>
+        <df-terms-filter field="color"></df-terms-filter>    
+        <h2>Filter by Brand</h2>
+        <df-terms-filter field="brand"></df-terms-filter>
+        <h2>Filter by Price</h2>
+        <df-range-filter field="best_price" currency></df-range-filter>
+      </div>
+    <df-results infinite hidden></df-results>
+    <div class="df-footer">
+      <a class="doofinder-link" href="https://www.doofinder.com?mktcod=REF1&amp;utm_source=referrals&amp;utm_medium=REF1" target="_blank" rel="noopener noreferer">Powered by <span class="doofinder-logo"> Doofinder</span></a>
+    </div>
+  </df-layer>
+  <!-- End Doofinder layer definition -->
+</body>
+</html>
