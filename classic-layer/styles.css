@@ -7,7 +7,7 @@ df-layer {
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
-  "header   header"
+  "header   header_right"
   "results  filters"
   "footer   footer";
   background-color: white;
@@ -43,12 +43,19 @@ df-layer {
   }
 }
 
-df-layer .header {
-  grid-area: header;
+df-layer .header, df-layer .header_right {
   height: 23px;
   border-bottom: 1px solid #eee;
-  align-items: center;
   padding: 4px;
+}
+
+df-layer .header {
+  grid-area: header;
+  align-items: center;
+}
+
+df-layer .header_right {
+  grid-area: header_right;
 }
 
 df-layer .layout-options {
