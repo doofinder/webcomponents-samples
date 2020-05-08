@@ -11,7 +11,7 @@
     import 'https://cdn.doofinder.com/dev/v8/webcomponents/webcomponents.js';
 
     // Do an initial query with "silla" term.
-    let context = Context.getContext("7a6100c782c09126479e9270ecc619b3", "EU1"); 
+    let context = Context.getContext("7a6100c782c09126479e9270ecc619b3", "eu1-search.doofinder.com"); 
     context.query.text = "shirt";
     context.search();    
   </script>
@@ -22,7 +22,7 @@
     <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
   </div>
   
-  <df-layer hashid="7a6100c782c09126479e9270ecc619b3" positioned-reference="#search_input" positioned-overflow="fix-all"
+  <df-layer hashid="7a6100c782c09126479e9270ecc619b3" server="eu1-search.doofinder.com" positioned-reference="#search_input" positioned-overflow="fix-all"
     positioned="auto" hidden>
     <df-input-capture input="#search_input" ></df-input-capture>
     <div class="df-header">
