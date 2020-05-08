@@ -19,7 +19,7 @@
     };
 
     // subscribe to search response event to show some layer areas
-    let context = Context.getContext('7a6100c782c09126479e9270ecc619b3');
+    let context = Context.getContext('7a6100c782c09126479e9270ecc619b3', "eu1-search.doofinder.com");
     subscription = context.subscribe(ContextTopic.SearchResponse, (response) => {
       document.querySelector('.df-aside').hidden = false;
       document.querySelector('df-results').hidden = false;
@@ -47,6 +47,7 @@
             id="df-fullscreen"
             class="df-layer-fullscreen"
             hashid="7a6100c782c09126479e9270ecc619b3"
+            server="eu1-search.doofinder.com"
             display="fullscreen"
             display-trigger="#search_input"
             hidden>

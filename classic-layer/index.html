@@ -11,7 +11,7 @@
     import 'https://cdn.doofinder.com/dev/v8/webcomponents/webcomponents.js';
 
     // Do an initial query with "shoes" term (This code is optional).
-    let context = Context.getContext("7a6100c782c09126479e9270ecc619b3", "EU1"); 
+    let context = Context.getContext("7a6100c782c09126479e9270ecc619b3", "eu1-search.doofinder.com"); 
     context.query.text = "shoes";
     context.search();
 
@@ -44,7 +44,7 @@
     <p>Curabitur quis nulla ligula. Nulla fermentum est in metus accumsan, ac blandit magna aliquet. Proin placerat commodo aliquet. Quisque vel felis vitae quam egestas sagittis. Phasellus sit amet feugiat eros. Nullam a ipsum vel tortor mollis ullamcorper. Cras pretium lectus sit amet ex rutrum convallis. Vivamus luctus tincidunt diam.</p>
     
     <!-- Doofinder layer definition -->
-    <df-layer id="df-classic" hashid="7a6100c782c09126479e9270ecc619b3" positioned-reference="#query-input"
+    <df-layer id="df-classic" hashid="7a6100c782c09126479e9270ecc619b3" server="eu1-search.doofinder.com" positioned-reference="#query-input"
     positioned="auto" hidden>
       <df-input-capture input="#search_input"></df-input-capture>
       <div class="header">

@@ -112,18 +112,12 @@ df-results {
 }
 
 .df-footer .doofinder-link {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   color: #606569!important;
   font-size: 12px!important;
   line-height: 1.6em;
   text-decoration: none!important;
   padding-right: 5px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
 
 }
