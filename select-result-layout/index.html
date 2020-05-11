@@ -14,17 +14,29 @@
     let context = Context.getContext("7a6100c782c09126479e9270ecc619b3", "eu1-search.doofinder.com"); 
     context.query.text = "shirt";
     context.search();   
+
+    document.querySelector("#grid-button").addEventListener("click", () => {
+      document.querySelector('df-results').layout = "grid";
+    })
+
+    document.querySelector("#list-button").addEventListener("click", () => {
+      document.querySelector('df-results').layout = "list";
+    })
   </script>
 </head>
 
 <body>
+  <div class="buttons-container">
+    <button id="grid-button">Grid Layout</button>
+    <button id="list-button">List Layout</button>
+  </div>
   <div class="input-container">
-    <input type="text" class="form-control" id="search_input" placeholder="Search Here" />
+    <input type="text" class="form-control" id="search-input" placeholder="Search Here" />
   </div>
 
-  <df-layer hashid="7a6100c782c09126479e9270ecc619b3" server="eu1-search.doofinder.com" positioned-reference="#search_input" positioned-overflow="fix-all"
+  <df-layer hashid="7a6100c782c09126479e9270ecc619b3" server="eu1-search.doofinder.com" positioned-reference="#search-input" positioned-overflow="fix-all"
     positioned="auto" hidden>
-    <df-input-capture input="#search_input"></df-input-capture>
+    <df-input-capture input="#search-input"></df-input-capture>
     <div class="df-header">
       Total found: <df-info key="total_found"></df-info>
     </div>
