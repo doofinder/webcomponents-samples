@@ -65,6 +65,17 @@ df-layer {
   padding-bottom: 20px;
 }
 
+.df-aside h2 {
+  font-size: 1.1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #dddddd;
+}
+
+.df-aside h2:first-child {
+  margin-top: 0px;
+}
+
 .df-content {
   height: 800px;
   grid-area: content;
