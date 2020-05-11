@@ -3,11 +3,26 @@ body {
   font-size: 14px;
 }
 
+.buttons-container, .input-container, df-layer {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.buttons-container {
+  margin-bottom: 1em;
+}
+
+.buttons-container button {
+  background-color: #c9c7c7;
+  padding: 1em;
+  border-radius: 5px;
+  margin-right: 1em;
+}
+
 .input-container {
   text-align: center;
   padding: 0 0;
-  margin: 0 auto;
-  width: 95%;
+  
 }
 
 .input-container input {
@@ -26,8 +41,6 @@ body {
 
 df-layer {
   display: grid;
-  width: 95%;
-  margin: 0 auto;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 21px auto 40px;
   grid-template-areas:
