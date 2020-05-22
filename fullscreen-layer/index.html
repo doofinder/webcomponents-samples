@@ -7,8 +7,7 @@
       rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="module">
-    import 'https://cdn.doofinder.com/dev/v8/webcomponents.min.js';
-    import { Context } from 'https://cdn.doofinder.com/dev/v8/webcomponents.min.js';
+    import { Context, ContextTopic } from 'https://cdn.doofinder.com/dev/v8/webcomponents.min.js';
 
     // hide layer when the search dialog is closed
     document.querySelector('#close_button').onclick = function(e){
@@ -20,7 +19,7 @@
 
     // subscribe to search response event to show some layer areas
     let context = Context.getContext('7a6100c782c09126479e9270ecc619b3', "eu1-search.doofinder.com");
-    subscription = context.subscribe(ContextTopic.SearchResponse, (response) => {
+    let subscription = context.subscribe(ContextTopic.SearchResponse, (response) => {
       document.querySelector('.df-aside').hidden = false;
       document.querySelector('df-results').hidden = false;
       document.querySelector('.results').hidden = false;
