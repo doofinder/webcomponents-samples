@@ -3,6 +3,30 @@ body {
   font-size: 14px;
 }
 
+df-layer {
+  --df-price--color: white;
+  --df-price--background-color: blue;
+
+  --df-price--discounted--color: purple;
+  --df-price--discounted--background-color: yellow;
+
+  --df-price--outdated--color: #ccc;
+  --df-price--outdated--background-color: #000;
+
+  --df-price--padding-top: 4px;
+  --df-price--padding-right: 8px;
+  --df-price--padding-bottom: 4px;
+  --df-price--padding-left: 8px;
+
+  --df-image--background-color: #ffffff;
+}
+
+df-results {
+  width: 100%;
+  position: fixed;
+}
+
+
 .input-container {
   text-align: center;
   padding: 0 0;
@@ -23,84 +47,4 @@ body {
   outline: none;
 }
 
-df-layer {
-  display: grid;
-  width: 95%;
-  margin: 0 auto;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 21px auto 40px;
-  grid-template-areas:
-    ".      header"
-    "aside  content"
-    "aside  footer";
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
 
-  --df-price--color: white;
-  --df-price--background-color: blue;
-
-  --df-price--discounted--color: purple;
-  --df-price--discounted--background-color: yellow;
-
-  --df-price--outdated--color: #ccc;
-  --df-price--outdated--background-color: #000;
-
-  --df-price--padding-top: 4px;
-  --df-price--padding-right: 8px;
-  --df-price--padding-bottom: 4px;
-  --df-price--padding-left: 8px;
-
-  --df-image--background-color: #ffffff;
-}
-
-.df-header {
-  grid-area: header;
-}
-
-.df-aside {
-  grid-area: aside;
-  overflow-y: scroll;
-  padding-bottom: 20px;
-}
-
-.df-aside h2 {
-  font-size: 1.1em;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  border-bottom: 1px solid #dddddd;
-}
-
-.df-aside h2:first-child {
-  margin-top: 0px;
-}
-
-.df-content {
-  height: 800px;
-  grid-area: content;
-  overflow: hidden;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.df-content df-suggestions {
-  flex: 0 0 auto;
-}
-
-.df-content df-results {
-  flex: 1 1 auto;
-}
-
-.df-footer {
-  grid-area: footer;
-  text-align: right;
-  line-height: 30px;
-  color: #999;
-}
-
-df-panel {
-  margin-bottom: 10px;
-}
-
-df-panel:last-child {
-  margin-bottom: 0;
-}

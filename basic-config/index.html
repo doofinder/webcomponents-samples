@@ -17,51 +17,7 @@
   <df-layer hashid="7a6100c782c09126479e9270ecc619b3" server="eu1-search.doofinder.com" positioned-reference="#search_input" positioned-overflow="fix-all"
     positioned="auto" hidden>
     <df-input-capture input="#search_input"></df-input-capture>
-    <div class="df-header">
-      <div class="df-header">
-        Total Found: <df-info key="total_found"></df-info>
-      </div>
-    </div>
-    <div class="df-aside">
-      <h2>Filter by Gender</h2>
-      <df-terms-filter field="gender"></df-terms-filter>
-      <h2>Filter by Condition</h2>
-      <df-terms-filter field="condition"></df-terms-filter>
-      <h2>Color</h2>
-      <df-tags-filter field="color">
-        <df-tag type="color" color="#1e3be3">Blue</df-tag>
-        <df-tag type="color" color="#000080">Navy Blue</df-tag>
-        <df-tag type="color" color="#000">Black</df-tag>
-        <df-tag type="color" color="#808080">Grey</df-tag>
-        <df-tag type="color" color="#ff0000">Red</df-tag>
-        <df-tag type="color" color="#008000">Green</df-tag>
-        <df-tag type="color" color="#a52a2a">Brown</df-tag>
-        <df-tag type="color" color="#fff">White</df-tag>
-        <df-tag type="color" color="#f5f5dc">Beige</df-tag>
-        <df-tag type="color" color="#ffc0cb">Pink</df-tag>
-        <df-tag type="color" color="#ffe6ea">beige-pink</df-tag>
-        <df-tag type="color" color="#f0e68c">Khaki</df-tag>
-        <df-tag type="color" color="#4b0082">Indigo</df-tag>
-        <df-tag type="color" color="#ffff00">Yellow</df-tag>
-      </df-tags-filter>
-      <h2>Size Selected</h2>
-      <df-tags-filter field="size" order="asc">
-        <df-tag>XS</df-tag>
-        <df-tag>S</df-tag>
-        <df-tag>M</df-tag>
-        <df-tag>L</df-tag>
-        <df-tag>XL</df-tag>
-        <df-tag>XXL</df-tag>
-      </df-tags-filter>
-      <h2>Filter by Price</h2>
-      <df-range-filter field="best_price" currency="EUR"></df-range-filter>
-    </div>
-    <div class="df-content">
-      <df-results infinite></df-results>
-    </div>
-    <div class="df-footer">
-      Powered by Doofinder
-    </div>
+    <df-results infinite></df-results>
   </df-layer>
 </body>
 </html>
