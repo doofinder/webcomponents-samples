@@ -2,6 +2,7 @@
 
 The following code examples show you how to implement some use cases. 
 
+- [Load layer from Doofinder](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/load-script)
 - [Classic Layer](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/classic-layer)
 - [Fullscreen Layer](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/fullscreen-layer)
 - [Basic Config](https://codesandbox.io/s/github/doofinder/webcomponents-samples/tree/master/basic-config)
